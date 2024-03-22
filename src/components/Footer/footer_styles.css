@@ -9,10 +9,9 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* bottom: 0px; */
+  padding: 0px 10px;
   background: linear-gradient(to right, black, white);
   max-height: var(--ihc-height-footer);
-  margin-top: 10px;
 }
 #footer-div > h3 {
   display: flex;

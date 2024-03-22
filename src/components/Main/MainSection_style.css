@@ -40,6 +40,7 @@ main {
   justify-content: flex-start;
   gap: var(--ihc-Gap-s);
   min-height: calc(100vh - var(--ihc-height-footer) - var(--ihc-height-header));
+  overflow: hidden;
 }
 section {
   gap: var(--ihc-Gap-s);
@@ -98,7 +99,7 @@ h2 {
 #map {
   width: 300px;
   height: 300px;
-  margin: 20px;
+  margin: 20px 80px;
   align-self: end;
 }
 .map-hiden {
@@ -179,6 +180,10 @@ h2 {
   #project-name {
     font-size: 16px;
   }
+  #map {
+    height: 130px;
+    width: 200px;
+  }
 }
 
 @media (max-width: 680px) {
@@ -187,8 +192,8 @@ h2 {
     width: 120px;
   }
   #map {
-    width: 150px;
-    height: 150px;
+    height: 120px;
+    width: 200px;
   }
 }
 @media (max-width: 562px) {
@@ -200,6 +205,11 @@ h2 {
   }
   #main-ul > li {
     place-self: center;
+  }
+  #footer-div > h3 {
+    font-size: 8px;
+  }
+  #icons-div > a {
   }
 }
 
@@ -217,7 +227,26 @@ h2 {
 }
 @media (max-width: 450px) {
   #map {
-    width: 150px;
-    height: 150px;
+    height: 110px;
+    width: 200px;
+  }
+}
+@media (max-width: 420px) {
+  .WorkingPrject {
+    height: 80px;
+    width: 80px;
+  }
+  #project-name {
+    font-size: 12px;
+  }
+  .article-text {
+    font-size: 12px;
+  }
+  #map {
+    width: 180px;
+    height: 100px;
+  }
+  #footer-div > h3 {
+    font-size: 8px;
   }
 }

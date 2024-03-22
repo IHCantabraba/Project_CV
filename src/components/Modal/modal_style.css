@@ -57,3 +57,12 @@
     transform: translateX(px);
   }
 }
+
+@media (max-width: 600px) {
+  #modal-text {
+    font-size: 20px;
+  }
+  #modal-div {
+    gap: 5px;
+  }
+}
