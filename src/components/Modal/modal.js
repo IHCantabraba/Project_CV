@@ -34,6 +34,7 @@ export function AddModalView() {
       MODAL = true
       AddHeaderData()
       let counter = document.querySelector('#count')
+
       setupCounter(counter)
       AddMainData()
       AddFooterData()
