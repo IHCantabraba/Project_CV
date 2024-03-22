@@ -69,7 +69,7 @@ export function AddMainData() {
   const educationPUniversity = createObj(
     'p',
     'education-P-year',
-    "Oviedo's University Polytechnical School of Mieres"
+    ' Polytechnical School of Mieres'
   )
   const educationPyear = createObj('p', 'education-P-bachelor', '2015')
   const educationPmark = createObj('p', 'education-P-mark', '')
