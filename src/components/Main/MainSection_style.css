@@ -111,6 +111,9 @@ h2 {
   flex-direction: column;
   max-width: 250px;
   gap: var(--ihc-Gap-s);
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
 }
 
 .article-text {
@@ -184,6 +187,14 @@ h2 {
     height: 130px;
     width: 200px;
   }
+  .Work {
+    height: 80px;
+    width: 80px;
+  }
+  .experience-articles > .article-text {
+    font-size: 8px;
+    width: 60%;
+  }
 }
 
 @media (max-width: 680px) {
@@ -208,8 +219,6 @@ h2 {
   }
   #footer-div > h3 {
     font-size: 8px;
-  }
-  #icons-div > a {
   }
 }
 
@@ -240,7 +249,7 @@ h2 {
     font-size: 12px;
   }
   .article-text {
-    font-size: 12px;
+    font-size: 10px;
   }
   #map {
     width: 180px;
