@@ -1,0 +1,39 @@
+:root {
+  /* FOOTER text color*/
+  --ihc-text-color-footer: rgb(160, 159, 159);
+  --ihc-height-footer: 50px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* bottom: 0px; */
+  background: linear-gradient(to right, black, white);
+  max-height: var(--ihc-height-footer);
+  margin-top: 10px;
+}
+#footer-div > h3 {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-self: center;
+  color: burlywood;
+}
+#footer-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--ihc-Gap-default);
+  /* padding: var(--ihc-padding-m); */
+}
+#icons-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ihc-Gap-default);
+}

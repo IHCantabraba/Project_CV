@@ -1,0 +1,48 @@
+:root {
+  /* DEFAULT TEXT SETTINGS */
+
+  --ihc-h1-color: rgb(160, 159, 159);
+}
+* {
+  margin: var(--ihc-margin-default);
+  padding: var(--ihc-padding-default);
+  box-sizing: border-box;
+  color: var(--ihc-h1-color);
+}
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ihc-padding-l) var(--ihc-padding-xl);
+  margin: var(--ihc-margin-m) var(--ihc-margin-default);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+header > h1 {
+  color: var(--ihc-h1-color);
+  font-weight: var(--ihc-text-font-weight-default);
+  cursor: pointer;
+}
+li {
+  list-style-type: none;
+  font-size: var(--ihc-text-font-size-m);
+}
+li > a {
+  text-decoration: none;
+  color: var(--ihc-h1-color);
+  font-size: 20px;
+}
+li > a:hover {
+  color: var(--ihc-text-hover-color);
+  cursor: pointer;
+}
+
+#vistas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}

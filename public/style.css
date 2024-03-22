@@ -1,0 +1,9 @@
+:root {
+  --ihc-height-header: 20px;
+  --ihc-height-footer: 20px;
+}
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,108 @@
+:root {
+  /* DEFAULT TEXT SETTINGS */
+  --ihc-text-color-default: white;
+  --ihc-text-color-primary: black;
+  --ihc-text-hover-color: burlywood;
+  --ihc-text-font-weight-default: bold;
+  /* TEXT SIZE */
+  --ihc-text-font-size-m: 20px;
+  /* PADDING */
+  --ihc-padding-default: 0px;
+  --ihc-padding-xs: 5px;
+  --ihc-padding-s: 10px;
+  --ihc-padding-m: 20px;
+  --ihc-padding-l: 30px;
+  --ihc-padding-xl: 100px;
+
+  /* Margin */
+  --ihc-margin-default: 0px;
+  --ihc-margin-m: 20px;
+  /* GAP */
+  --ihc-Gap-default: 10px;
+  --ihc-Gap-s: 20px;
+  /*shadow color */
+  --ihc-shadow-color: rgb(112, 116, 146);
+  /* border radius */
+  --ihc-btn-Brd-radius-default: 15px;
+  --ihc-height-header: 100px;
+  --ihc-height-footer: 40px;
+}
+
+main,
+section,
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main {
+  gap: var(--ihc-Gap-s);
+  min-height: calc(100vh - var(--ihc-height-footer) - var(--ihc-height-header));
+}
+section {
+  gap: var(--ihc-Gap-s);
+}
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#main-ul {
+  flex-direction: row;
+  gap: var(--ihc-Gap-s);
+}
+#main-ul > li {
+  background-color: var(--ihc-text-hover-color);
+  border-radius: 15px;
+}
+#main-ul > li > a {
+  color: var(--ihc-text-color-primary);
+  padding: var(--ihc-padding-s);
+  font-weight: var(--ihc-text-font-weight-default);
+}
+#inigo-logo {
+  box-shadow: 0px 0px 25px -4px var(--ihc-shadow-color);
+}
+.exp-btn {
+  padding: var(--ihc-padding-xs) var(--ihc-padding-m);
+  background-color: var(--ihc-text-hover-color);
+  border-radius: var(--ihc-btn-Brd-radius-default);
+  color: var(--ihc-text-color-primary);
+  font-weight: bold;
+  font-size: 20px;
+}
+/* sección Experiencia */
+.article-div.hide {
+  display: none;
+}
+
+.article-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ihc-Gap-s);
+}
+
+.article-div {
+}
+
+/* #about-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+} */
+#map {
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  align-self: end;
+}
+.map-hiden {
+  display: none;
+}
