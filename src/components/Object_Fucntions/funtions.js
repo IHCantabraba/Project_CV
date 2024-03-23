@@ -15,9 +15,6 @@ export function CreateUl(DataArray) {
   return ul
 }
 export function CreateMap() {
-  // const mapDiv = document.querySelector('#map')
-  // mapDiv.id = 'map'
-
   const map = L.map('map').setView([40.558047, -4.620497], 6)
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -33,20 +30,29 @@ export function CreateMap() {
       navigator.geolocation.getCurrentPosition(getPosition)
     }, 2000)
   }
-  var marker, circle
+  let marker, circle
   function getPosition(position) {
     console.log(position)
     var lat = position.coords.latitude
     var long = position.coords.longitude
     var accuracy = position.coords.accuracy
     if (marker) {
+      console.log('removing previous marker')
       map.removeLayer(marker)
     }
     if (circle) {
+      console.log('removing previous accurary area')
+
       map.removeLayer(circle)
     }
-    var marker = L.marker([lat, long]).addTo(map)
-    var circle = L.circle([lat, long], { raduis: accuracy }).addTo(map)
+    var greenIcon = L.icon({
+      iconUrl:
+        'https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_25/v1711182522/marker-icon-2x-green_ojk6wv.png',
+      shadowUrl:
+        'https://res.cloudinary.com/df7b0dj9r/image/upload/v1711182587/marker-shadow_hxk6vx.png'
+    })
+    marker = L.marker([lat, long], { icon: greenIcon }).addTo(map)
+    circle = L.circle([lat, long], { raduis: accuracy }).addTo(map)
     var featureGroup = L.featureGroup([marker, circle]).addTo(map)
     map.fitBounds(featureGroup.getBounds())
     // var popup = L.popup().setLatLng([lat, long]).setContent(' Loc.').openOn(map)
