@@ -23,7 +23,7 @@ export function CreateMap() {
   const map = L.map('map', {
     fullscreenControl: true,
     fullscreenControlOptions: {
-      position: 'bottonleft'
+      position: 'bottonright'
     }
   }).setView([40.558047, -4.620497], 6)
 
