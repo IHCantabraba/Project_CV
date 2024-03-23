@@ -41,7 +41,7 @@ export function CreateMap() {
     /* run the geolocationn function every 5 seconds*/
     setInterval(() => {
       navigator.geolocation.getCurrentPosition(getPosition)
-    }, 5000)
+    }, 3000)
   }
 
   /* Inicializar objjetos de mapa */
@@ -57,25 +57,21 @@ export function CreateMap() {
     var long = position.coords.longitude
     var accuracy = position.coords.accuracy
     /* añadir posicion incial a lista de posiciones */
-    if (HistoricalLocatios.length === 0) {
-      let FirstPosition = [lat, long]
-      if (!HistoricalLocatios.includes([lat, long])) {
-        console.log('not included')
-        HistoricalLocatios.push(FirstPosition)
-      }
-    }
+
+    let FirstPosition = [lat, long]
+    HistoricalLocatios.push(FirstPosition)
+
     /* ejectuar static position si la clase hide existe en el botón */
     const btnTracking = document.querySelector('.Tracking-btn')
     if (btnTracking.classList.contains('hide')) {
       StaticPosition()
-    } else DynamicPosition()
+    } else {
+      DynamicPosition()
+    }
 
     /* eliminar posiciones anteriores */
     function StaticPosition() {
       /* hacer que se pueda elegir con un botton */
-      // const btnTracking = document.querySelector('.Tracking-btn')
-
-      //if (btnTracking.classList.contains('hide')) {
       /* TODO ¿ how to read al markers? */
       map.eachLayer((layer) => {
         btnTracking.innerHTML = 'Show Tracking!'
@@ -85,16 +81,8 @@ export function CreateMap() {
         }
         /* eliminar el marcador previo obtener su posicion y almacenarla */
         if (layer.options.title === 'marker') {
-          /* obtener coordenadas previas del marcador */
-          const previousLatLong = layer.getLatLng()
-          /* obtener posicion */
-          lat = previousLatLong['lat']
-          long = previousLatLong['lng']
-          /* almacenar posicion */
-          const latlot = [lat, long]
-          HistoricalLocatios.push(latlot)
+          /* eliminar capa */
           map.removeLayer(layer)
-          /* añadir a la lista de posiciones */
         } /* si es una línea eliminarla */
         if (layer.options.title === 'line') {
           map.removeLayer(layer)
@@ -107,12 +95,12 @@ export function CreateMap() {
         popupAnchor: [0, 0],
         tooltipAnchor: [0, 0]
       })
-      // defaultmarker = L.marker([lat, long]).addTo(map)
+      /* create map elements */
       marker = L.marker([lat, long], {
         title: 'marker',
         alt: 'marker',
         icon: greenIcon
-      }).addTo(map) //{ icon: greenIcon }
+      }).addTo(map)
       circle = L.circle([lat, long], {
         title: 'circle',
         alt: 'circle',
@@ -125,14 +113,13 @@ export function CreateMap() {
         raduis: accuracy
       }).addTo(map)
 
+      /* create layer group for map elements*/
       var featureGroup = L.featureGroup([marker, circle, polyline]).addTo(map)
+      /* zoom to layer group bounds */
       map.fitBounds(featureGroup.getBounds())
+      console.log(`historical postions are: ${HistoricalLocatios.length}`)
     } /*Si queremos mostrar el track */
     function DynamicPosition() {
-      // const btnTracking = document.querySelector('.Tracking-btn')
-
-      // if (!btnTracking.classList.contains('hide')) {
-      // HistoricalLocatios.unshift([40.558047, -4.620497])
       /* cambiar texto del boton */
       btnTracking.innerHTML = 'Tracking You!'
       /* para cada capa existente en el mapa */
@@ -142,20 +129,10 @@ export function CreateMap() {
           map.removeLayer(layer)
         }
         if (layer.options.title === 'marker') {
-          /* obtener coordenadas previas del marcador */
-          const previousLatLong = layer.getLatLng()
-
-          /* obtener posicion */
-          lat = previousLatLong['lat']
-          long = previousLatLong['lng']
-
-          /* almacenar posicion */
-          const latlot = [lat, long]
-          HistoricalLocatios.push(latlot)
+          /* eliminar capa */
           map.removeLayer(layer)
-
-          /* añadir a la lista de posiciones */
-        } /* si es una línea eliminarla */
+        }
+        /* si es una línea eliminarla */
         if (layer.options.title === 'line') {
           map.removeLayer(layer)
         }
@@ -196,7 +173,7 @@ export function CreateMap() {
           }).addTo(map)
         }
       })
-      // }
+      console.log(`historical postions length is: ${HistoricalLocatios}`)
     }
   }
 
