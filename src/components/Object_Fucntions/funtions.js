@@ -1,7 +1,7 @@
 /* funtion to create a Ul with li > a elements for element in Array */
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
-import icon from 'leaflet/dist/images/marker-icon-green.png'
+import icon from 'leaflet/dist/images/marker-icon.png'
 import iconShadow from 'leaflet/dist/images/marker-shadow.png'
 import 'leaflet-fullscreen/dist/Leaflet.fullscreen.js'
 import 'leaflet-fullscreen/dist/leaflet.fullscreen.css'
