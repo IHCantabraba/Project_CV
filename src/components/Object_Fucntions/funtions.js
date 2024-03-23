@@ -3,6 +3,8 @@ import 'leaflet/dist/leaflet.css'
 import L, { polyline } from 'leaflet'
 import icon from 'leaflet/dist/images/marker-icon.png'
 import iconShadow from 'leaflet/dist/images/marker-shadow.png'
+import 'leaflet-fullscreen/dist/Leaflet.fullscreen.js'
+import 'leaflet-fullscreen/dist/leaflet.fullscreen.css'
 export function CreateUl(DataArray) {
   const ul = document.createElement('ul')
   for (let Data of DataArray) {
@@ -16,7 +18,12 @@ export function CreateUl(DataArray) {
   return ul
 }
 export function CreateMap() {
-  const map = L.map('map').setView([40.558047, -4.620497], 6)
+  const map = L.map('map', {
+    fullscreenControl: true,
+    fullscreenControlOptions: {
+      position: 'bottonleft'
+    }
+  }).setView([40.558047, -4.620497], 6)
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution:
