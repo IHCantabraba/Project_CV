@@ -36,30 +36,36 @@ export function CreateMap() {
     var lat = position.coords.latitude
     var long = position.coords.longitude
     var accuracy = position.coords.accuracy
-    if (marker) {
-      console.log('removing previous marker')
-      map.removeLayer(marker)
-    }
-    if (circle) {
-      console.log('removing previous accurary area')
-      map.removeLayer(circle)
-    }
-    if (greenIcon) {
-      console.log('removing previous Icon')
-      map.removeLayer(greenIcon)
+    /* eliminar posiciones anteriores */
+    /* TODO hacer que se pueda elegir con un botton */
+    const btnTracking = document.querySelector('.Tracking-btn')
+    if (btnTracking.classList.contains('hide')) {
+      console.log('removing prior objects')
+      if (marker) {
+        map.removeLayer(marker)
+      }
+      if (circle) {
+        map.removeLayer(circle)
+      }
+      if (greenIcon) {
+        map.removeLayer(greenIcon)
+      }
+      if (defaultmarker) {
+        map.removeLayer(defaultmarker)
+      }
     }
 
-    greenIcon = L.icon({
-      iconUrl:
-        'https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_25/v1711182522/marker-icon-2x-green_ojk6wv.png',
-      shadowUrl:
-        'https://res.cloudinary.com/df7b0dj9r/image/upload/v1711182587/marker-shadow_hxk6vx.png',
-      iconAnchor: [14, 40],
-      popupAnchor: [0, 0],
-      tooltipAnchor: [0, 0]
-    })
-    defaultmarker = L.marker([lat, long]).addTo(map)
-    marker = L.marker([lat, long], { icon: greenIcon }).addTo(map)
+    // greenIcon = L.icon({
+    //   iconUrl:
+    //     'https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_25/v1711182522/marker-icon-2x-green_ojk6wv.png',
+    //   shadowUrl:
+    //     'https://res.cloudinary.com/df7b0dj9r/image/upload/v1711182587/marker-shadow_hxk6vx.png',
+    //   iconAnchor: [14, 40],
+    //   popupAnchor: [0, 0],
+    //   tooltipAnchor: [0, 0]
+    // })
+    // defaultmarker = L.marker([lat, long]).addTo(map)
+    marker = L.marker([lat, long]).addTo(map) //{ icon: greenIcon }
     circle = L.circle([lat, long], { raduis: accuracy }).addTo(map)
     var featureGroup = L.featureGroup([marker, circle]).addTo(map)
     map.fitBounds(featureGroup.getBounds())

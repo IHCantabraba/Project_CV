@@ -143,6 +143,18 @@ export function AddMainData() {
   sectionProject.appendChild(articlesDiv)
   articlesDiv
   /* AÑADIR UN MAPA */
+  /* crear boton para los breadcrumbs */
+  const BreadCrumbsBtn = document.createElement('button')
+  BreadCrumbsBtn.className = 'Tracking-btn'
+  BreadCrumbsBtn.classList.toggle('hide')
+  BreadCrumbsBtn.innerHTML = 'Show Tracking!'
+  BreadCrumbsBtn.addEventListener('click', () => {
+    if (BreadCrumbsBtn.classList.contains('hide')) {
+      BreadCrumbsBtn.classList.remove('hide')
+    } else {
+      BreadCrumbsBtn.classList.toggle('hide')
+    }
+  })
   CreateMap()
   /* añadir la seccion al main */
   main.appendChild(section)
@@ -150,6 +162,7 @@ export function AddMainData() {
   main.appendChild(expBtn)
   main.appendChild(articleDiv)
   main.appendChild(sectionProject)
+  main.appendChild(BreadCrumbsBtn)
   /* insertar el main en el body antes que el mapa */
   document.body.insertBefore(main, document.querySelector('#map'))
 }
