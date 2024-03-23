@@ -157,6 +157,16 @@ h2 {
   justify-content: center;
   gap: var(--ihc-Gap-s);
 }
+
+.Tracking-btn {
+  background-color: var(--ihc-text-hover-color);
+  color: black;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: var(--ihc-padding-xs);
+  align-self: flex-end;
+  margin-right: 180px;
+}
 @media (max-width: 1016px) {
   #main-ul {
     display: grid;
@@ -194,6 +204,10 @@ h2 {
   .experience-articles > .article-text {
     font-size: 10px;
     width: 60%;
+  }
+  .Tracking-btn {
+    font-size: 12px;
+    margin-right: 130px;
   }
 }
 
@@ -238,6 +252,10 @@ h2 {
   #map {
     height: 110px;
     width: 200px;
+  }
+  .Tracking-btn {
+    font-size: 10px;
+    margin-right: 120px;
   }
 }
 @media (max-width: 420px) {
