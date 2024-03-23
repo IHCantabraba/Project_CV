@@ -158,8 +158,17 @@ h2 {
   gap: var(--ihc-Gap-s);
 }
 
-.Tracking-btn {
+.Tracking-btn.hide {
   background-color: var(--ihc-text-hover-color);
+  color: black;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: var(--ihc-padding-xs);
+  align-self: flex-end;
+  margin-right: 180px;
+}
+.Tracking-btn {
+  background-color: green;
   color: black;
   font-weight: bold;
   border-radius: 15px;
@@ -206,6 +215,10 @@ h2 {
     width: 60%;
   }
   .Tracking-btn {
+    font-size: 12px;
+    margin-right: 130px;
+  }
+  .Tracking-btn.hide {
     font-size: 12px;
     margin-right: 130px;
   }
