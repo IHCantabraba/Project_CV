@@ -129,19 +129,23 @@ export function CreateMap() {
           if (layer.options.title === 'marker') {
             /* obtener coordenadas previas del marcador */
             const previousLatLong = layer.getLatLng()
+
             /* obtener posicion */
             lat = previousLatLong['lat']
             long = previousLatLong['lng']
+
             /* almacenar posicion */
             const latlot = [lat, long]
             HistoricalLocatios.push(latlot)
             map.removeLayer(layer)
+
             /* añadir a la lista de posiciones */
           } /* si es una línea eliminarla */
           if (layer.options.title === 'line') {
             map.removeLayer(layer)
           }
         })
+        /* create icon */
         greenIcon = L.icon({
           iconUrl: icon,
           shadowUrl: iconShadow,
@@ -149,22 +153,25 @@ export function CreateMap() {
           popupAnchor: [0, 0],
           tooltipAnchor: [0, 0]
         })
-        // defaultmarker = L.marker([lat, long]).addTo(map)
+        /* add marker */
         marker = L.marker([lat, long], {
           title: 'marker',
           alt: 'marker',
           icon: greenIcon
         }).addTo(map)
-
+        /* add polyline */
         polyline = L.polyline(HistoricalLocatios, {
           title: 'line',
           alt: 'line',
           raduis: accuracy
         }).addTo(map)
         /* crear un grupo y añadir las capas */
-        // var featureGroup =
         L.featureGroup([marker, polyline]).addTo(map)
+
+        /* fit map to layer group bounds */
         // map.fitBounds(featureGroup.getBounds())
+
+        /* añadir tooltipo a la ultima posicvión con las coords */
         map.eachLayer((layer) => {
           if (layer.options.title === 'line') {
             const vertices = layer.getLatLngs()
