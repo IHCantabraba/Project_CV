@@ -1,7 +1,8 @@
 /* funtion to create a Ul with li > a elements for element in Array */
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
-
+import icon from 'leaflet/dist/images/marker-icon.png'
+import iconShadow from 'leaflet/dist/images/marker-shadow.png'
 export function CreateUl(DataArray) {
   const ul = document.createElement('ul')
   for (let Data of DataArray) {
@@ -41,25 +42,31 @@ export function CreateMap() {
     const btnTracking = document.querySelector('.Tracking-btn')
     if (btnTracking.classList.contains('hide')) {
       console.log('removing prior objects')
-
+      /* TODO ¿ how to read al markers? */
       map.eachLayer((layer) => {
-        console.log(layer.title)
         if (layer) {
           map.removeLayer(layer)
         }
       })
     }
 
-    marker = L.marker([lat, long], { title: 'marker' }).addTo(map) //{ icon: greenIcon }
+    greenIcon = L.icon({
+      iconUrl: icon,
+      shadowUrl: iconShadow,
+      iconAnchor: [14, 40],
+      popupAnchor: [0, 0],
+      tooltipAnchor: [0, 0]
+    })
+    // defaultmarker = L.marker([lat, long]).addTo(map)
+    marker = L.marker([lat, long], { title: 'marker', icon: greenIcon }).addTo(
+      map
+    ) //{ icon: greenIcon }
     circle = L.circle([lat, long], { title: 'circle', raduis: accuracy }).addTo(
       map
     )
     var featureGroup = L.featureGroup([marker, circle]).addTo(map)
     map.fitBounds(featureGroup.getBounds())
     // var popup = L.popup().setLatLng([lat, long]).setContent(' Loc.').openOn(map)
-    console.log(
-      `Latitudeis : ${lat}, Longitude is: ${long} and accuracy is: ${accuracy}`
-    )
   }
 
   return map
