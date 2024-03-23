@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "leaflet": "^1.9.4",
-    "leaflet-fullscreen": "^1.0.2"
+    "leaflet-fullscreen": "^1.0.2",
+    "leaflet-geometryutil": "^0.10.3"
   }
 }
