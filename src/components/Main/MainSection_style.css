@@ -165,7 +165,8 @@ h2 {
   border-radius: 15px;
   padding: var(--ihc-padding-xs);
   align-self: flex-end;
-  margin-right: 10px;
+  margin-right: 180px;
+  border: none;
 }
 .Tracking-btn {
   background-color: green;
@@ -175,6 +176,7 @@ h2 {
   padding: var(--ihc-padding-xs);
   align-self: flex-end;
   margin-right: 180px;
+  border: none;
 }
 @media (max-width: 1016px) {
   #main-ul {

@@ -135,7 +135,7 @@ export function AddMainData() {
   /* RECENT PROYECTS */
   /* crear sección */
   const sectionProject = createSection('section', 'section-projects')
-  const projectsTitle = createObj('h2', 'project-title', 'Relevant Proyects')
+  const projectsTitle = createObj('h2', 'project-title', 'Projects')
   const articlesDiv = createObj('div', 'div-projects')
 
   sectionProject.appendChild(projectsTitle)

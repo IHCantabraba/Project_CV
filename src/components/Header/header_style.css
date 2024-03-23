@@ -3,6 +3,9 @@
 
   --ihc-h1-color: rgb(160, 159, 159);
 }
+html {
+  scroll-behavior: smooth;
+}
 * {
   margin: var(--ihc-margin-default);
   padding: var(--ihc-padding-default);
@@ -39,7 +42,9 @@ li > a:hover {
   color: var(--ihc-text-hover-color);
   cursor: pointer;
 }
-
+header > ul > li {
+  overflow: auto;
+}
 #vistas {
   display: flex;
   flex-direction: row;
